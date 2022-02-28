@@ -1,0 +1,166 @@
+body{
+    height: 100vh;
+   display: flex;
+   flex-direction: column;
+  justify-content: space-between;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background-color: #C7C9E8;
+    width:100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #252121;
+}
+footer {
+    padding: 20px;
+    margin-bottom: 0;
+    background-color: #252121;
+    color:rgb(238, 229, 229);
+    font-weight: 100;
+    font-size: 11px;
+    line-height: 2;
+}
+
+footer div{
+    width:200px;
+    font-style: oblique;
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+ul li{
+    color: white;
+    margin: 0 16px;
+}
+
+.blogs-container {
+    margin: 1.5rem auto;
+    width: 90%;
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width:600px) {
+    .blogs-container{
+        grid-template-columns: repeat( 2 , 1fr); 
+        grid-auto-columns: 1fr;
+    }
+}
+@media (min-width:800px) {
+    .blogs-container{
+        grid-template-columns: repeat( 4 , 1fr); 
+        grid-auto-columns: 1fr;
+    }
+    
+}
+div.blog-element{
+    background-color: #76799C;
+    border-radius: 8px;
+    -webkit-box-shadow: 8px 6px 23px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 6px 23px -5px rgba(66, 68, 90, 1);
+    box-shadow: 8px 6px 23px -5px rgba(66, 68, 90, 1);
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+.title{
+    color: black;
+}
+.title:hover{
+   opacity: 0.5;
+}
+.date{
+    margin-top: 4px;
+    font-size: 12px;
+}
+.author{
+    margin-top: 24px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-style: italic;
+}
+.about{
+    margin: 1.5rem;
+}
+.details{
+    position: relative;
+    width:80%;
+    max-width: 400px;
+    padding: 8px;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+}
+.trash{
+    position: absolute;
+    top:12px;
+    right:12px;
+    width:21px;
+}
+.form-container{
+    width:80%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+}
+form input, textarea{
+
+    border: none;
+    margin-bottom: 8px;
+    padding: 4px;
+}
+form input:focus, textarea:focus{
+    outline: 2px solid #76799C;
+}
+form button {
+    cursor: pointer;
+    width:120px;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid;
+}
+
+form button:hover{
+    outline: 2px solid #76799C;
+}
+.title-details{
+   
+    margin-left: 20px;
+}
+.details p{
+    overflow-wrap: break-word;
+}
+
+.create-container{
+    padding-bottom: 100px;
+}
+
+.error{
+    position: absolute;
+    height:30%;
+    width:50%;
+    margin: auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align: center;
+
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="create-container">
+    <h2 class="title-details">Create new blog</h2>
+    <div class="form-container">
+        <form class="form" action="/blogs" method="POST">
+            <label for="title">Blog title:</label>
+            <input type="text" id="title" name="title"  maxlength="60"required>
+            <label for="body">post here:</label>
+            <textarea id="body" name="body" rows="5" maxlength="300"  required></textarea>
+            <label for="author">Author of this post:</label>
+            <input type="text" id="author" name="author"  maxlength="50"required>
+            <button>Submit</button>
+        </form>
+    </div>
+</div>
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>

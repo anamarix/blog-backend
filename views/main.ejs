@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <% const shortBlogs = [...blogs]; %>
+  <%  shortBlogs.forEach(item => { %>
+   <% item.body = item.body.slice(0,15) +"..." %>
+  <%}) %>
+ 
+ 
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <main>
+      <div class="blogs-container">
+        
+        <% shortBlogs.forEach(el => { %>
+        <div class="blog-element">
+          <a href="/blogs/<%= el._id %>">
+            <h2 class="title"><%= el.title %></h2>
+          </a>
+          <p class="body"><%= el.body %></p>
+          <p class="author">author: <%= el.author%></p>
+          <p class="date"><%= el.date.toLocaleDateString()%></p>
+        </div>
+        <% }) %>
+      </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
