@@ -1,0 +1,2 @@
+This is the first version of my blog project where user can add, read and delete posts. The posts are kept in database.
+In the project I am using ExpressJS, MongoDB and EJS.
