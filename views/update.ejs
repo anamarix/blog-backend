@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="create-container">
+      <h2 class="title-details">Edit your blog</h2>
+      <div class="form-container">
+        <form class="form">
+          <label for="title">Blog title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="<%= blog.title%>"
+            maxlength="60"
+            required
+          />
+          <label for="body">post here:</label>
+          <textarea id="body" name="body" rows="5" maxlength="300" required>
+<%=blog.body%></textarea
+          >
+          <label for="author">Author of this post:</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            value="<%= blog.author%>"
+            maxlength="50"
+            required
+          />
+          <button onclick="editHandler()" data-doc="<%= blog._id%>">
+            Edit
+          </button>
+        </form>
+      </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    <script>
+      const editHandler = () => {
+         
+        const editButton = document.querySelector("button");
+        const endpoint = `/update/${editButton.dataset.doc}`;
+        const title = document.querySelector("input#title").value;
+        const body = document.querySelector("textarea#body").value;
+        const author = document.querySelector("input#author").value;
+        fetch(endpoint, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            title: title,
+            body: body,
+            author: author,
+          }),
+        })
+          .then((data) => data.json())
+          .then(data => window.location.href = data.redirect)
+          .catch(err=> console.log(err))
+
+         
+      };
+    </script>
+  </body>
+</html>

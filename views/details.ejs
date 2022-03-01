@@ -8,6 +8,7 @@
       <p><%=blog.body%></p>
       <p class="author">author: <%= blog.author%></p>
       <a class="delete" data-doc="<%=blog._id%>"><img  class="trash" src="/bin.png"></a>
+      <a  href="/update/<%= blog._id %>" class="edit" data-doc="<%=blog._id%>"><img  class="edit-img" src="/edit.png"></a>
     </div>
     <%- include('./partials/footer.ejs') %>
     <script>

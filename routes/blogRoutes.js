@@ -1,5 +1,6 @@
 const express = require("express");
 const Blog = require("../models/blog");
+
 const router = express.Router();
 
 router.get("/blogs", (req, res) => {
@@ -19,13 +20,21 @@ router.get("/blogs/:id", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+router.get("/update/:id", (req, res) => {
+  const id = req.params.id;
+  Blog.findById(id)
+    .then((result) => {
+      res.render("update.ejs", { blog: result });
+    })
+    .catch((err) => console.log(err));
+});
 
 router.post("/blogs", (req, res) => {
   const blog = new Blog(req.body);
   blog
     .save()
     .then((result) => {
-      res.redirect("./blogs");
+      res.redirect("/blogs");
     })
     .catch((err) => console.log(err));
 });
@@ -36,5 +45,16 @@ router.delete("/blogs/:id", (req, res) => {
     .then((result) => res.json({ redirect: "/blogs" }))
     .catch((err) => console.log(err));
 });
+router.put("/update/:id", (req, res) => {
+  const id = req.params.id;
+  Blog.findByIdAndUpdate({_id:id}, req.body)
+    .then((result) => res.json({redirect: "/blogs"}))
+    .catch((err) => {
+      console.log(err);
+
+    });
+});
+
+
 
 module.exports = router;

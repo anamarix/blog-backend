@@ -109,6 +109,12 @@ a{
     right:12px;
     width:21px;
 }
+.edit-img{
+    position: absolute;
+    top:12px;
+    right:40px;
+    width:21px;
+}
 .form-container{
     width:80%;
     max-width: 500px;

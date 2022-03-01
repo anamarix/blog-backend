@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
+
 
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes')
 
 require('dotenv').config()
-
 const user = process.env.USER;
 const pass = process.env.PASS;
 
@@ -28,6 +29,7 @@ app.get('/about', (req, res) => {
 })
 
 app.use(blogRoutes);
+
 
 app.use((req, res)=>{
     res.status(404).render('404.ejs')
