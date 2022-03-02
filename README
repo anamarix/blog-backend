@@ -1,2 +1,4 @@
 This is the first version of my blog project where user can add, read, update and delete posts. The posts are kept in database.
 In the project I am using ExpressJS, MongoDB and EJS.
+
+Live version: http://nodejs-blog-pl.herokuapp.com/blogs
